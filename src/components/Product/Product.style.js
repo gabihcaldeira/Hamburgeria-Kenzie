@@ -6,12 +6,13 @@ export const ListItem = styled.li`
   background-color: var(--white);
   border: 2px solid var(--grey-20);
   border-radius: 8px;
-  margin: 0 10px;
+  margin: 10px;
   padding-bottom: 20px;
   font-size: 0.87rem;
   font-weight: 600;
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
 
   figure {
     width: 100%;

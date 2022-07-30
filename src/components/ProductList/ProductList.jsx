@@ -1,11 +1,11 @@
-import Card from "../Product/Product";
+import Product from "../Product/Product";
 import { List } from "./ProductList.style";
 
 const ProductsList = ({ list }) => {
   return (
     <List>
       {list.map(({ id, name, category, price, img }) => (
-        <Card
+        <Product
           key={id}
           name={name}
           category={category}

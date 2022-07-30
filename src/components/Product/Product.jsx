@@ -1,6 +1,7 @@
 import { ListItem } from "./Product.style";
+import numeral from "numeral";
 
-const Card = ({ name, category, price, img }) => {
+const Product = ({ name, category, price, img }) => {
   return (
     <ListItem>
       <figure>
@@ -9,11 +10,11 @@ const Card = ({ name, category, price, img }) => {
       <div className="itemInfo">
         <h3>{name}</h3>
         <span>{category}</span>
-        <p>{price}</p>
+        <p>R$ {numeral(price).format("0.00")}</p>
       </div>
       <button>Adicionar</button>
     </ListItem>
   );
 };
 
-export default Card;
+export default Product;

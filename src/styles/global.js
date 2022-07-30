@@ -7,8 +7,9 @@ const GlobalStyle = createGlobalStyle`
 
         --color-primary: #a1f236;
         --color-primary-50: rgba(160, 242, 54, 0.5);
-        --color-secondary: #680021;
-        --color-secondary-50: rgb(104, 0, 33, 0.5);
+        --color-primary-dark: #6eb315;
+        --color-secondary: #9a1741;
+        --color-secondary-50: rgb(154, 23, 65, 0.5);
 
         --white: #ffffff;
         --grey-0: #F5F5F5;
@@ -47,19 +48,20 @@ const GlobalStyle = createGlobalStyle`
     };
 
     button {
+    cursor: pointer;
     padding: 11.5px 20px;
-    background-color: var(--color-primary);
-    color: var(--white);
+    background-color: var(--color-secondary);
+    color: var(--grey-0);
     border-radius: 8px;
     transition: background-color 0.5s ease-in-out;
     font-weight: 600;
     font-size: 1rem;
-  }
+  };
 
   button:hover {
-    background-color: var(--color-primary-50);
-    color: var(--white);
-  }
+    background-color: var(--color-secondary-50);
+    color: var(--grey-0);
+  };
 
 `;
 

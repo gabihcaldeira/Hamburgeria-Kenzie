@@ -46,4 +46,14 @@ export const Nav = styled.nav`
   input::placeholder {
     color: var(--grey-20);
   }
+
+  button {
+    background-color: var(--color-primary);
+    color: var(--white);
+  }
+
+  button:hover {
+    background-color: var(--color-primary-50);
+    color: var(--white);
+  }
 `;

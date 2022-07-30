@@ -6,7 +6,7 @@
 
 .main {
   background-image: url("../../public/assets/6-3.jpg");
-  background-repeat: repeat-x;
+  background-repeat: repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -15,5 +15,12 @@
 @media (min-width: 760px) {
   .main {
     background-size: contain;
+  }
+}
+
+@media (min-width: 1020px) {
+  .main {
+    height: fit-content;
+    display: flex;
   }
 }
