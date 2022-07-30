@@ -1,3 +1,19 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  background-image: url("../../public/assets/6-3.jpg");
+  background-repeat: repeat-x;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (min-width: 760px) {
+  .main {
+    background-size: contain;
+  }
 }
