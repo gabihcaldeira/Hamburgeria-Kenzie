@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         --grey-50:#828282;
         --grey-100: #333333;
         --grey: #1b1b1b;
+        --black: #000
 
 
     };
@@ -35,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
 
     };
 
+    input:focus{
+        outline: none;
+    };
+
     aside, header, nav, section {
 	display: block;
     };
@@ -50,18 +55,12 @@ const GlobalStyle = createGlobalStyle`
     button {
     cursor: pointer;
     padding: 11.5px 20px;
-    background-color: var(--color-secondary);
-    color: var(--grey-0);
     border-radius: 8px;
     transition: background-color 0.5s ease-in-out;
     font-weight: 600;
     font-size: 1rem;
   };
 
-  button:hover {
-    background-color: var(--color-secondary-50);
-    color: var(--grey-0);
-  };
 
 `;
 

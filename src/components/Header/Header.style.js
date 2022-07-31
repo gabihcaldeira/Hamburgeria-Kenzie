@@ -7,12 +7,16 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--grey-0);
+  background-color: ${(props) =>
+    props.isLightMode ? "var(--grey-0)" : "var(--black)"};
   padding: 5px 0;
   margin: 0;
 
   img {
-    content: url("./assets/logo-black.png");
+    content: ${(props) =>
+      props.isLightMode
+        ? 'url("./assets/logo-black.png")'
+        : 'url("./assets/logo-white.png")'};
     height: 50%;
   }
 
@@ -24,14 +28,45 @@ export const StyledHeader = styled.header`
       height: 100%;
     }
   }
+
+  div {
+    width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const ViewModeButton = styled.button`
+  width: 34px;
+  height: 34px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: ${(props) =>
+    props.isLightMode ? "var(--white)" : "var(--grey)"};
+  border: 2px solid
+    ${(props) => (props.isLightMode ? "var(--grey-20)" : "var(--grey-50)")};
+  color: ${(props) =>
+    props.isLightMode ? "var(--grey-20)" : "var(--grey-50)"};
+  font-size: 20px;
+
+  :hover {
+    background-color: ${(props) =>
+      props.isLightMode ? "var(--grey-20)" : "var(--grey-50)"};
+    color: ${(props) => (props.isLightMode ? "var(--white)" : "var(--grey)")};
+    border: 2px solid
+      ${(props) => (props.isLightMode ? "var(--white)" : "var(--grey)")};
+  }
 `;
 
 export const Nav = styled.nav`
   width: 90%;
   max-width: 380px;
   height: 60px;
-  background-color: var(--white);
-  border: 2px solid var(--grey-20);
+  background-color: ${(props) =>
+    props.isLightMode ? "var(--white)" : "var(--grey)"};
+  border: 2px solid
+    ${(props) => (props.isLightMode ? "var(--grey-20)" : "var(--grey-100)")};
   border-radius: 8px;
   padding: 10px;
   display: flex;
@@ -40,7 +75,7 @@ export const Nav = styled.nav`
 
   input {
     width: 50%;
-    color: var(--grey-20);
+    color: var(--grey-50);
   }
 
   input::placeholder {
@@ -48,12 +83,21 @@ export const Nav = styled.nav`
   }
 
   button {
-    background-color: var(--color-primary);
-    color: var(--white);
+    background-color: ${(props) =>
+      props.isLightMode ? "var(--color-primary)" : "var(--color-secondary)"};
+    color: ${(props) => (props.isLightMode ? "var(--grey)" : "var(--grey-0)")};
+  }
+
+  button + button {
+    margin-left: 5px;
   }
 
   button:hover {
-    background-color: var(--color-primary-50);
-    color: var(--white);
+    background-color: ${(props) =>
+      props.isLightMode
+        ? "var(--color-primary-50)"
+        : "var(--color-secondary-50)"};
+    color: ${(props) =>
+      props.isLightMode ? "var(--grey-100)" : "var(--grey-20)"};
   }
 `;

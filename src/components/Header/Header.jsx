@@ -1,13 +1,30 @@
-import { StyledHeader, Nav } from "./Header.style";
+import { StyledHeader, Nav, ViewModeButton } from "./Header.style";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-const Header = () => {
+const Header = ({
+  searchProduct,
+  showAllProducts,
+  isLightMode,
+  setIsLightMode,
+}) => {
   return (
-    <StyledHeader>
+    <StyledHeader isLightMode={isLightMode}>
       <img alt="Burger Kenzie Logo" />
-      <Nav>
-        <input type="text" placeholder="Digitar Pesquisa" />
-        <button>Pesquisar</button>
-      </Nav>
+      <div>
+        <Nav isLightMode={isLightMode}>
+          <input type="text" placeholder="Digitar Pesquisa" />
+          <button onClick={searchProduct}>Pesquisar</button>
+          <button onClick={showAllProducts}>Todos</button>
+        </Nav>
+        <ViewModeButton
+          isLightMode={isLightMode}
+          onClick={() =>
+            isLightMode ? setIsLightMode(false) : setIsLightMode(true)
+          }
+        >
+          {isLightMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+        </ViewModeButton>
+      </div>
     </StyledHeader>
   );
 };

@@ -17,6 +17,6 @@ export const List = styled.ul`
   }
 
   @media (min-width: 1400px) {
-    justify-content: flex-end;
+    justify-content: center;
   }
 `;

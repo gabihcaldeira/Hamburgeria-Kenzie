@@ -1,9 +1,9 @@
 import { ListItem } from "./Product.style";
 import numeral from "numeral";
 
-const Product = ({ name, category, price, img }) => {
+const Product = ({ id, name, category, price, img, isLightMode, action }) => {
   return (
-    <ListItem>
+    <ListItem isLightMode={isLightMode}>
       <figure>
         <img src={img} alt={name} />
       </figure>
@@ -12,7 +12,7 @@ const Product = ({ name, category, price, img }) => {
         <span>{category}</span>
         <p>R$ {numeral(price).format("0.00")}</p>
       </div>
-      <button>Adicionar</button>
+      <button onClick={() => action(id)}>Adicionar</button>
     </ListItem>
   );
 };
