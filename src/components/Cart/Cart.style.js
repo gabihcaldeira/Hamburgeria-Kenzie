@@ -54,4 +54,9 @@ export const CartSection = styled.section`
     font-style: italic;
     text-decoration: underline;
   }
+
+  .cart__productsList {
+    height: 320px;
+    overflow-y: auto;
+  }
 `;

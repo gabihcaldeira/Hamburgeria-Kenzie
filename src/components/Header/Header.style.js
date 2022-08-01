@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  height: 150px;
+  height: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,13 +11,14 @@ export const StyledHeader = styled.header`
     props.isLightMode ? "var(--grey-0)" : "var(--black)"};
   padding: 5px 0;
   margin: 0;
+  gap: 5px;
 
   img {
     content: ${(props) =>
       props.isLightMode
         ? 'url("./assets/logo-black.png")'
         : 'url("./assets/logo-white.png")'};
-    height: 50%;
+    height: 70px;
   }
 
   @media (min-width: 760px) {
@@ -30,10 +31,17 @@ export const StyledHeader = styled.header`
   }
 
   div {
-    width: 440px;
+    width: 95%;
+    max-width: 300px;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+  @media (min-width: 1020px) {
+    div {
+      justify-content: flex-start;
+    }
   }
 `;
 
@@ -49,6 +57,8 @@ export const ViewModeButton = styled.button`
   color: ${(props) =>
     props.isLightMode ? "var(--grey-20)" : "var(--grey-50)"};
   font-size: 20px;
+  position: fixed;
+  left: 15px;
 
   :hover {
     background-color: ${(props) =>
@@ -62,7 +72,7 @@ export const ViewModeButton = styled.button`
 export const Nav = styled.nav`
   width: 90%;
   max-width: 380px;
-  height: 60px;
+  height: 90px;
   background-color: ${(props) =>
     props.isLightMode ? "var(--white)" : "var(--grey)"};
   border: 2px solid
@@ -70,8 +80,18 @@ export const Nav = styled.nav`
   border-radius: 8px;
   padding: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: 760px) {
+    flex-direction: row;
+    height: 60px;
+  }
+
+  div {
+    justify-content: center;
+  }
 
   input {
     width: 50%;

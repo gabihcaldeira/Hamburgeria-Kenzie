@@ -1,7 +1,8 @@
 import CartProduct from "../CartProduct/CartProduct";
+import CartTotal from "../CartTotal/CartTotal";
 import { CartSection } from "./Cart.style";
 
-const Cart = ({ cartList, isLightMode }) => {
+const Cart = ({ cartList, isLightMode, removeFromCart, cleanCart }) => {
   return (
     <CartSection isLightMode={isLightMode}>
       <div className="cart__header">
@@ -14,17 +15,27 @@ const Cart = ({ cartList, isLightMode }) => {
             <button className="cart__link">Adicionar itens</button>
           </div>
         ) : (
-          <ul className="cart__productsList">
-            {cartList.map(({ id, name, price, img }, index) => (
-              <CartProduct
-                key={index}
-                id={id}
-                name={name}
-                price={price}
-                img={img}
-              />
-            ))}
-          </ul>
+          <>
+            <ul className="cart__productsList">
+              {cartList.map(({ product, quantity }, index) => (
+                <CartProduct
+                  key={index}
+                  id={product.id}
+                  name={product.name}
+                  price={product.price}
+                  img={product.img}
+                  quantity={quantity}
+                  removeFromCart={removeFromCart}
+                  isLightMode={isLightMode}
+                />
+              ))}
+            </ul>
+            <CartTotal
+              cartList={cartList}
+              cleanCart={cleanCart}
+              isLightMode={isLightMode}
+            />
+          </>
         )}
       </div>
     </CartSection>

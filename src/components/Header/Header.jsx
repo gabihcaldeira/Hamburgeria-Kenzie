@@ -9,13 +9,7 @@ const Header = ({
 }) => {
   return (
     <StyledHeader isLightMode={isLightMode}>
-      <img alt="Burger Kenzie Logo" />
       <div>
-        <Nav isLightMode={isLightMode}>
-          <input type="text" placeholder="Digitar Pesquisa" />
-          <button onClick={searchProduct}>Pesquisar</button>
-          <button onClick={showAllProducts}>Todos</button>
-        </Nav>
         <ViewModeButton
           isLightMode={isLightMode}
           onClick={() =>
@@ -24,7 +18,17 @@ const Header = ({
         >
           {isLightMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
         </ViewModeButton>
+        <img alt="Burger Kenzie Logo" />
       </div>
+      <Nav isLightMode={isLightMode}>
+        <input
+          type="text"
+          placeholder="Digitar Pesquisa"
+          onKeyDown={searchProduct}
+        />
+        <button onClick={searchProduct}>Pesquisar</button>
+        <button onClick={showAllProducts}>Todos</button>
+      </Nav>
     </StyledHeader>
   );
 };

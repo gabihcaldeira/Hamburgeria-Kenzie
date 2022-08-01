@@ -50,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
 
     ol, ul {
 	list-style: none;
+    
     };
 
     button {
@@ -59,6 +60,10 @@ const GlobalStyle = createGlobalStyle`
     transition: background-color 0.5s ease-in-out;
     font-weight: 600;
     font-size: 1rem;
+  };
+
+  ::-webkit-scrollbar {
+    display: none;
   };
 
 

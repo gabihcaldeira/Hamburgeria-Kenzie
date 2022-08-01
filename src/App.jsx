@@ -12,14 +12,54 @@ function App() {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   function addToCart(ProductId) {
-    const getProduct = productsList.filter(({ id }) => id === ProductId);
-    setCartProductsList((oldCartList) => [...oldCartList, getProduct]);
-    console.log(getProduct);
+    const productIndex = cartProductsList.findIndex(
+      ({ product }) => product.id === ProductId
+    );
+    if (productIndex !== -1) {
+      cartProductsList[productIndex].quantity++;
+      setCartProductsList([...cartProductsList]);
+    } else {
+      const getProduct = productsList.find(({ id }) => id === ProductId);
+      const newProduct = {
+        product: getProduct,
+        quantity: 1,
+      };
+      setCartProductsList([...cartProductsList, newProduct]);
+    }
+  }
+
+  function removeFromCart(ProductId) {
+    const productIndex = cartProductsList.findIndex(
+      ({ product }) => product.id === ProductId
+    );
+    if (cartProductsList[productIndex].quantity > 1) {
+      cartProductsList[productIndex].quantity--;
+      setCartProductsList([...cartProductsList]);
+    } else {
+      const removeProduct = cartProductsList.filter(
+        ({ product }) => product.id !== ProductId
+      );
+      setCartProductsList([...removeProduct]);
+    }
+  }
+
+  function cleanCart() {
+    setCartProductsList([]);
   }
 
   function searchProduct(event) {
-    // event.preventDefault();
-    const input = event.target.previousElementSibling.value.toLowerCase();
+    let input = "";
+    if (event.type === "keydown") {
+      if (event.key === "Enter") {
+        input = event.target.value.toLowerCase();
+        event.target.value = "";
+      } else {
+        return null;
+      }
+    } else if (event.type === "click") {
+      input = event.target.previousElementSibling.value.toLowerCase();
+      event.target.previousElementSibling.value = "";
+    }
     const result = productsList.filter(({ name, category, price }) => {
       if (
         name.toLowerCase().includes(input) ||
@@ -31,7 +71,6 @@ function App() {
         return false;
       }
     });
-    event.target.previousElementSibling.value = "";
     setFilteredProducts(result);
   }
 
@@ -65,7 +104,12 @@ function App() {
           addToCart={addToCart}
           isLightMode={isLightMode}
         />
-        <Cart cartList={cartProductsList} isLightMode={isLightMode} />
+        <Cart
+          cartList={cartProductsList}
+          isLightMode={isLightMode}
+          removeFromCart={removeFromCart}
+          cleanCart={cleanCart}
+        />
       </main>
     </AppDiv>
   );

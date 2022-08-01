@@ -11,21 +11,26 @@ export const AppDiv = styled.div`
         ? 'url("./assets/background-white.jpg")'
         : 'url("./assets/background-black.jpg")'};
     background-repeat: repeat;
-    background-size: cover;
+    background-size: auto;
     width: 100vw;
     height: 100vh;
   }
 
   @media (min-width: 760px) {
     .main {
-      background-size: contain;
+      height: max-content;
     }
   }
 
   @media (min-width: 1020px) {
     .main {
-      height: 100vh;
       display: flex;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .main {
+      height: 100vh;
     }
   }
 `;
