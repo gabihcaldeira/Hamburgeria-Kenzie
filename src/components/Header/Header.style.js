@@ -89,7 +89,8 @@ export const Nav = styled.nav`
     height: 60px;
   }
 
-  div {
+  > div {
+    display: flex;
     justify-content: center;
   }
 
@@ -100,10 +101,6 @@ export const Nav = styled.nav`
 
   input::placeholder {
     color: var(--grey-20);
-  }
-
-  > div {
-    display: flex;
   }
 
   button {
