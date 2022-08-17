@@ -26,8 +26,10 @@ const Header = ({
           placeholder="Digitar Pesquisa"
           onKeyDown={searchProduct}
         />
-        <button onClick={searchProduct}>Pesquisar</button>
-        <button onClick={showAllProducts}>Todos</button>
+        <div>
+          <button onClick={searchProduct}>Pesquisar</button>
+          <button onClick={showAllProducts}>Todos</button>
+        </div>
       </Nav>
     </StyledHeader>
   );

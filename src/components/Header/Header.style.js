@@ -102,6 +102,10 @@ export const Nav = styled.nav`
     color: var(--grey-20);
   }
 
+  > div {
+    display: flex;
+  }
+
   button {
     background-color: ${(props) =>
       props.isLightMode ? "var(--color-primary)" : "var(--color-secondary)"};
